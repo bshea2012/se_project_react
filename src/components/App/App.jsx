@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -30,8 +30,6 @@ function App() {
     setActiveModal("");
   };
 
-  const isOpen = useRef();
-
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -42,22 +40,32 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (!activeModal) return;
+
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
-        setActiveModal("");
+        closeActiveModal();
+      }
+    };
+
+    const handleRemoteClick = (e) => {
+      if (e.target.classList.contains("modal")) {
+        closeActiveModal();
       }
     };
 
     window.addEventListener("keydown", handleEscClose);
+    document.addEventListener("mousedown", handleRemoteClick);
 
     return () => {
       window.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("mousedown", handleRemoteClick);
     };
-  }, []);
+  }, [activeModal]);
 
   return (
     <div className="page">
-      <div className="page__content" ref={isOpen}>
+      <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
@@ -65,7 +73,7 @@ function App() {
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">
