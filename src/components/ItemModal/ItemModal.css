@@ -5,7 +5,7 @@
 }
 
 .modal__close {
-  background-image: url("../../assets/modal_close_button_white.svg");
+  /* background-image: url("../../assets/modal_close_button_white.svg"); */
 }
 
 .modal__image {
@@ -31,3 +31,17 @@
 .modal__weather {
   margin: 0;
 }
+
+/* @media screen and (max-width: 425px) {
+  .modal__content {
+    min-height: 463px;
+  }
+
+  .modal__content_image {
+    width: 343px;
+  }
+
+  .modal__footer {
+    margin: 20px 20px 40px;
+  }
+} */

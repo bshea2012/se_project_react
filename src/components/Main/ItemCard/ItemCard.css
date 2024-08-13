@@ -25,3 +25,19 @@
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
+
+/* @media screen and (max-width: 425px) {
+  .card {
+    width: 164px;
+    height: 164px;
+    border-radius: 12px;
+  }
+
+  .card__title {
+    top: 7px;
+  }
+
+  .card__image {
+    border-radius: 12px;
+  }
+} */

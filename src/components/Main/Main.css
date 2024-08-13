@@ -20,3 +20,17 @@
   list-style-type: none;
   gap: 20px;
 }
+
+/* @media screen and (max-width: 425px) {
+  .cards {
+    padding: 0;
+  }
+
+  .cards__text {
+    padding: 32px 0 20px;
+  }
+
+  .cards__list {
+    gap: 15px;
+  }
+} */
