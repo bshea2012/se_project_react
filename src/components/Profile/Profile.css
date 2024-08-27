@@ -1,0 +1,11 @@
+.profile {
+  display: flex;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+.profile__sidebar {
+  min-width: 345px;
+}

@@ -19,6 +19,15 @@
   margin: 0;
 }
 
+.header__menu_button {
+  display: none;
+}
+
+.header__nav_web {
+  margin: 0 0 0 auto;
+  display: flex;
+}
+
 .header__add-clothes-button {
   margin: 0 20px 0 auto;
   border: none;
@@ -28,6 +37,11 @@
   cursor: pointer;
 }
 
+.header__user-link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+}
+
 .header__user-container {
   display: flex;
   align-items: center;
@@ -35,9 +49,10 @@
 }
 
 .header__username {
+  margin: 0;
 }
 
-/* @media screen and (max-width: 425px) {
+@media screen and (max-width: 425px) {
   .header__container {
     padding: 0;
     display: grid;
@@ -45,19 +60,37 @@
   }
 
   .header__logo {
-    margin: 0 auto 32px 0;
+    margin: 0 auto 34px 0;
+    grid-area: logo;
   }
 
   .header__date-loco {
-    margin-right: auto;
+    margin-bottom: 16px;
+    grid-area: time;
+  }
+
+  .header__nav_mobile {
   }
 
   .header__add-clothes-button {
+    display: none;
   }
 
   .header__user-container {
+    display: none;
   }
 
   .header__username {
   }
-} */
+
+  .header__menu_button {
+    background: center url("../../assets/header_mobile_menu_button.svg")
+      no-repeat;
+    grid-area: menuIcon;
+    height: 44px;
+    width: 44px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 2px 8px 0px #0000001a;
+  }
+}

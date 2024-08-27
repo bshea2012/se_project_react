@@ -24,8 +24,7 @@
   width: 100%;
 }
 
-/* @media screen and (max-width: 425px) {
+@media screen and (max-width: 425px) {
   .weather-card {
-    margin: 0 16px 0;
   }
-} */
+}

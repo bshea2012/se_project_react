@@ -1,0 +1,18 @@
+.modal__delete_text {
+  margin: 0;
+}
+
+.modal__delete_button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.modal__delete_button-confirm {
+  margin-top: 40px;
+  color: rgba(255, 77, 0, 1);
+}
+
+.modal__delete_button-cancel {
+  margin-top: 24px;
+}
