@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./AddItemModal.css";
 import { Link } from "react-router-dom";
 
 const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
