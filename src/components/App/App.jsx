@@ -49,7 +49,7 @@ function App() {
 
   const handleAddItemSubmit = (item) => {
     addItem(item)
-      .then(setClothingItems([item, ...clothingItems]))
+      .then((newItem) => setClothingItems([newItem, ...clothingItems]))
       .catch(console.error);
   };
 

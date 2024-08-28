@@ -9,7 +9,7 @@ function ItemModal({
   handleCardDelete,
 }) {
   const handleDeleteConfirm = () => {
-    onDeleteClick(card._id);
+    onDeleteClick(card?.id);
   };
 
   return (

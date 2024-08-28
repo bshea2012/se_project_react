@@ -23,19 +23,22 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
     setWeather(e.target.value);
   };
 
-  // use a useEffect hook to reset the input field state to empty strings when
-  // the modal is opened
-  //   useEffect(() => {
-  //     if (isOpen) {
-  //       setName("");
-  //       setImageUrl("");
-  //       setWeather("");
-  //     }
-  //   }, []);
+  function resetForm() {
+    setName("");
+    setImageUrl("");
+    setWeather("");
+  }
+
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, imageUrl, weather });
+    resetForm();
   };
 
   return (
