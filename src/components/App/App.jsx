@@ -22,6 +22,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -42,15 +43,20 @@ function App() {
     setActiveModal("");
   };
 
-  const onAddItem = (item) => {
-    setActiveModal("");
-    handleAddItemSubmit(item);
+  const onAddItem = (item, resetForm) => {
+    handleAddItemSubmit(item, resetForm);
   };
 
-  const handleAddItemSubmit = (item) => {
+  const handleAddItemSubmit = (item, resetForm) => {
+    setIsLoading(true);
     addItem(item)
-      .then((newItem) => setClothingItems([newItem, ...clothingItems]))
-      .catch(console.error);
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+        resetForm();
+      })
+      .catch(console.error)
+      .finally(setIsLoading(false));
   };
 
   const openDeleteConfirmModal = () => {
@@ -64,7 +70,7 @@ function App() {
         setClothingItems((clothingItems) =>
           clothingItems.filter((item) => item._id !== id)
         );
-        setActiveModal("");
+        closeActiveModal();
       })
       .catch(console.error);
   };
@@ -146,6 +152,7 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onAddItem={onAddItem}
           closeActiveModal={closeActiveModal}
+          isLoading={isLoading}
         />
         <ItemModal
           activeModal={activeModal}

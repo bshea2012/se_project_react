@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddItemModal.css";
 import { Link } from "react-router-dom";
 
-const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
+const AddItemModal = ({ isOpen, onAddItem, closeActiveModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -29,22 +29,21 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
     setWeather("");
   }
 
-  useEffect(() => {
-    if (isOpen) {
-      resetForm();
-    }
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     resetForm();
+  //   }
+  // }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather });
-    resetForm();
+    onAddItem({ name, imageUrl, weather }, resetForm);
   };
 
   return (
     <ModalWithForm
       title="New garment"
-      buttonText="Add garment"
+      buttonText={isLoading ? "Saving..." : "Add garment"}
       isOpen={isOpen}
       onClose={closeActiveModal}
       onSubmit={handleSubmit}
