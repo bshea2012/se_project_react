@@ -56,7 +56,7 @@ function App() {
         resetForm();
       })
       .catch(console.error)
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   const openDeleteConfirmModal = () => {
