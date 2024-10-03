@@ -15,12 +15,12 @@ function ModalWithForm({
         <button onClick={onClose} type="button" className="modal__close" />
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button
+          {/* <button
             className="modal__submit modal__submit_disabled"
             type="submit"
           >
             {buttonText}
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

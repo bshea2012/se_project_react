@@ -43,7 +43,7 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal, isLoading }) => {
   return (
     <ModalWithForm
       title="New garment"
-      buttonText={isLoading ? "Saving..." : "Add garment"}
+      // buttonText={isLoading ? "Saving..." : "Add garment"}
       isOpen={isOpen}
       onClose={closeActiveModal}
       onSubmit={handleSubmit}
@@ -109,6 +109,9 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal, isLoading }) => {
           Cold
         </label>
       </fieldset>
+      <button className="modal__submit modal__submit_disabled" type="submit">
+        {isLoading ? "Saving..." : "Add garment"}
+      </button>
     </ModalWithForm>
   );
 };

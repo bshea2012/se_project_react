@@ -6,6 +6,8 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { APIkey, coordinates } from "../../utils/constants";
@@ -32,6 +34,10 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
+
+  // const handleRegisterClick = () => {
+  //   setActiveModal("register");
+  // };
 
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
@@ -160,6 +166,18 @@ function App() {
           onClose={closeActiveModal}
           onDeleteClick={openDeleteConfirmModal}
           handleCardDelete={handleCardDelete}
+        />
+        <RegisterModal
+          isOpen={false}
+          // onAddItem={onAddItem}
+          closeActiveModal={closeActiveModal}
+          isLoading={isLoading}
+        />
+        <LoginModal
+          isOpen={false}
+          // onAddItem={onAddItem}
+          closeActiveModal={closeActiveModal}
+          isLoading={isLoading}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
