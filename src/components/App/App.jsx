@@ -200,21 +200,15 @@ function App() {
 
     const id = item._id;
 
-    !isLiked
-      ? addCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard.data : item))
-            );
-          })
-          .catch(console.error)
-      : removeCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard.data : item))
-            );
-          })
-          .catch(console.error);
+    const action = !isLiked ? addCardLike : removeCardLike; // get the action
+
+    action(id, token)
+      .then((updatedCard) => {
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? updatedCard.data : item))
+        );
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
