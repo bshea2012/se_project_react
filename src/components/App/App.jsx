@@ -101,7 +101,7 @@ function App() {
     setIsLoading(true);
     addItem(item, token)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
         resetForm();
       })
@@ -296,6 +296,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
@@ -310,6 +311,7 @@ function App() {
                       handleEditProfileClick={handleEditProfileClick}
                       handleLogout={handleLogout}
                       onCardLike={handleCardLike}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }

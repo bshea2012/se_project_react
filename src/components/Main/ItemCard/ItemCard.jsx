@@ -4,7 +4,7 @@ import likeDisabled from "../../../assets/like_disabled.svg";
 import likeActive from "../../../assets/like_active.svg";
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 
-function ItemCard({ item, onCardClick, onCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const { userData } = React.useContext(CurrentUserContext);
 
   const handleCardClick = () => {
@@ -25,7 +25,9 @@ function ItemCard({ item, onCardClick, onCardLike }) {
     <li className="card">
       <div className="card__header">
         <h2 className="card__title">{item.name}</h2>
-        <button type="button" className={likeButton} onClick={handleLike} />
+        {isLoggedIn && (
+          <button type="button" className={likeButton} onClick={handleLike} />
+        )}
       </div>
 
       <img

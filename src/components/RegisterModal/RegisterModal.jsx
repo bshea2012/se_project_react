@@ -55,51 +55,51 @@ const RegisterModal = ({
       onClose={closeActiveModal}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="email-register" className="modal__label">
         Email*{" "}
         <input
           type="email"
           minLength="1"
           maxLength="30"
           className="modal__input"
-          id="email"
+          id="email-register"
           placeholder="Email"
           value={email}
           onChange={handleEmailChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="password-register" className="modal__label">
         Password{" "}
         <input
           type="password"
           minLength="1"
           className="modal__input"
-          id="password"
+          id="password-register"
           placeholder="Password"
           value={password}
           onChange={handlePasswordChange}
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="name-register" className="modal__label">
         Name*{" "}
         <input
           type="text"
           minLength="1"
           maxLength="30"
           className="modal__input"
-          id="name"
+          id="name-register"
           placeholder="Name"
           value={name}
           onChange={handleNameChange}
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="avatar-register" className="modal__label">
         Avatar URL*{" "}
         <input
           type="url"
           minLength="1"
           className="modal__input"
-          id="avatar"
+          id="avatar-register"
           placeholder="Avatar URL"
           value={avatar}
           onChange={handleAvatarChange}

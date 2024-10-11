@@ -8,6 +8,7 @@ function ClothesSection({
   onCardClick,
   onAddClick,
   onCardLike,
+  isLoggedIn,
 }) {
   const { userData } = React.useContext(CurrentUserContext);
 
@@ -30,6 +31,7 @@ function ClothesSection({
                 item={item}
                 onCardClick={onCardClick}
                 onCardLike={onCardLike}
+                isLoggedIn={isLoggedIn}
               />
             );
           }
