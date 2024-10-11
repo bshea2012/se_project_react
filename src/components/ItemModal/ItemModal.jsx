@@ -1,5 +1,7 @@
+import React, { useContext } from "react";
 import "./ItemModal.css";
 import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function ItemModal({
   activeModal,
@@ -8,8 +10,19 @@ function ItemModal({
   onDeleteClick,
   handleCardDelete,
 }) {
+  const { userData } = React.useContext(CurrentUserContext);
+
+  const isOwn = card.owner === userData._id;
+
+  const itemDeleteButtonClassName = `modal__delete ${
+    activeModal === "preview" && isOwn
+      ? "modal__delete-button_visible"
+      : "modal__delete-button_hidden"
+  }`;
+
   const handleDeleteConfirm = () => {
     onDeleteClick(card?.id);
+    !isOwn;
   };
 
   return (
@@ -21,7 +34,7 @@ function ItemModal({
           <h2 className="modal__caption">{card.name}</h2>
           <p className="modal__weather">Weather: {card.weather}</p>
           <button
-            className="modal__delete"
+            className={itemDeleteButtonClassName}
             type="button"
             onClick={handleDeleteConfirm}
           >

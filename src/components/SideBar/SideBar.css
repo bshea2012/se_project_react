@@ -1,14 +1,51 @@
 .sidebar {
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
+}
+
+.sidebar__avatar-container {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin-right: 16px;
+}
+
+.sidebar__user-username-avatar {
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  margin: 0;
+  color: rgba(255, 255, 255, 1);
 }
 
 .sidebar__avatar {
   width: 56px;
   height: 56px;
   margin-right: 16px;
+  border-radius: 50%;
 }
 
 .sidebar__username {
   margin: 0;
+}
+
+.sidebar__options {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__profile-edit {
+  margin: 0 auto 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar__log-out {
+  margin: 0 auto 8px 0;
+  border: none;
+  cursor: pointer;
 }

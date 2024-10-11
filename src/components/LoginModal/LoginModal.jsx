@@ -2,9 +2,37 @@ import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-const LoginModal = ({ isOpen, closeActiveModal, isLoading }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const LoginModal = ({
+  isOpen,
+  onLoginUser,
+  closeActiveModal,
+  isLoading,
+  handleRegisterClick,
+}) => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  function resetForm() {
+    setData({
+      email: "",
+      password: "",
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLoginUser(data, resetForm);
+  };
 
   return (
     <ModalWithForm
@@ -13,38 +41,47 @@ const LoginModal = ({ isOpen, closeActiveModal, isLoading }) => {
       //   buttonText="Log in"
       isOpen={isOpen}
       onClose={closeActiveModal}
-      //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="modal__label">
         Email*{" "}
         <input
-          type="text"
+          type="email"
           minLength="1"
           maxLength="30"
           className="modal__input"
           id="email"
+          name="email"
           placeholder="Email"
-          value={email}
-          //   onChange={handleNameChange}
+          value={data.email}
+          onChange={handleChange}
         />
       </label>
       <label htmlFor="password" className="modal__label">
         Password{" "}
         <input
-          type="url"
+          type="password"
           minLength="1"
           className="modal__input"
           id="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          //   onChange={handleImageChange}
+          value={data.password}
+          onChange={handleChange}
         />
       </label>
       <div className="modal__button-container">
-        <button className="modal__submit modal__submit_disabled" type="submit">
-          {"Log in"}
+        <button
+          className="modal__login-submit modal__login-submit_disabled"
+          type="submit"
+        >
+          {isLoading ? "Logging in..." : "Log in"}
         </button>
-        <button className="modal__submit-option" type="button">
+        <button
+          onClick={handleRegisterClick}
+          className="modal__login-submit-option"
+          type="button"
+        >
           {"or Sign up"}
         </button>
       </div>

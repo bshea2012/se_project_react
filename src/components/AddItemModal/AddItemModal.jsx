@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddItemModal.css";
-import { Link } from "react-router-dom";
 
 const AddItemModal = ({ isOpen, onAddItem, closeActiveModal, isLoading }) => {
   const [name, setName] = useState("");
@@ -28,12 +27,6 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal, isLoading }) => {
     setImageUrl("");
     setWeather("");
   }
-
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     resetForm();
-  //   }
-  // }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -38,6 +38,14 @@
   cursor: pointer;
 }
 
+.modal__delete-button_visible {
+  visibility: visible;
+}
+
+.modal__delete-button_hidden {
+  visibility: hidden;
+}
+
 @media screen and (max-width: 425px) {
   .modal__content {
     min-height: 463px;
